@@ -14,7 +14,7 @@ function App() {
   const chatContainerRef = useRef(null);
 
   // API base URL - use proxy in development, full URL in production
-  const API_BASE_URL = process.env.NODE_ENV === 'development' ? '' : 'https://frontend-modu.onrender.com';
+  const API_BASE_URL = process.env.NODE_ENV === 'development' ? '' : 'https://backend-python-y57q.onrender.com';
 
   // Check if device is mobile
   useEffect(() => {
