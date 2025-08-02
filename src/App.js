@@ -160,7 +160,7 @@ function App() {
 
     try {
       // Send via REST API
-      const response = await fetch('https://backend-modu.onrender.com/api/chat', {
+      const response = await fetch('https://localhost:3000/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -219,7 +219,7 @@ function App() {
 
   const clearChat = async () => {
     try {
-      const response = await fetch('https://backend-modu.onrender.com/api/clear', {
+      const response = await fetch('https://localhost:3000/api/clear', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -247,7 +247,7 @@ function App() {
 
   const getHelp = async () => {
     try {
-      const response = await fetch('https://backend-modu.onrender.com/api/help', {
+      const response = await fetch('https://localhost:3000/api/help', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -274,7 +274,7 @@ function App() {
 
   const testTools = async () => {
     try {
-      const response = await fetch('https://backend-modu.onrender.com/api/test-tools', {
+      const response = await fetch('https://localhost:3000/api/test-tools', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -304,7 +304,7 @@ function App() {
 
   const analyzeConversation = async () => {
     try {
-      const response = await fetch('https://backend-modu.onrender.com/api/analyze-conversation', {
+      const response = await fetch('https://localhost:3000/api/analyze-conversation', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
