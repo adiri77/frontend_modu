@@ -13,6 +13,9 @@ function App() {
   const messagesEndRef = useRef(null);
   const chatContainerRef = useRef(null);
 
+  // API base URL - use proxy in development, full URL in production
+  const API_BASE_URL = process.env.NODE_ENV === 'development' ? '' : 'https://frontend-modu.onrender.com';
+
   // Check if device is mobile
   useEffect(() => {
     const checkMobile = () => {
@@ -160,7 +163,7 @@ function App() {
 
     try {
       // Send via REST API
-      const response = await fetch('/api/chat', {
+      const response = await fetch(`${API_BASE_URL}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -215,7 +218,7 @@ function App() {
 
   const clearChat = async () => {
     try {
-      const response = await fetch('/api/clear', {
+      const response = await fetch(`${API_BASE_URL}/api/clear`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -239,7 +242,7 @@ function App() {
 
   const getHelp = async () => {
     try {
-      const response = await fetch('/api/help', {
+      const response = await fetch(`${API_BASE_URL}/api/help`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -262,7 +265,7 @@ function App() {
 
   const testTools = async () => {
     try {
-      const response = await fetch('/api/test-tools', {
+      const response = await fetch(`${API_BASE_URL}/api/test-tools`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -288,7 +291,7 @@ function App() {
 
   const analyzeConversation = async () => {
     try {
-      const response = await fetch('/api/analyze-conversation', {
+      const response = await fetch(`${API_BASE_URL}/api/analyze-conversation`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
