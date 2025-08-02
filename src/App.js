@@ -160,7 +160,7 @@ function App() {
 
     try {
       // Send via REST API
-      const response = await fetch('https://localhost:3000/api/chat', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -171,10 +171,6 @@ function App() {
         })
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      
       const data = await response.json();
       
       if (data.response) {
@@ -184,7 +180,7 @@ function App() {
       }
     } catch (error) {
       console.error('Error sending message:', error);
-      addMessage(`❌ Failed to send message: ${error.message}. Please try again.`, 'system');
+      addMessage('❌ Failed to send message. Please try again.', 'system');
     } finally {
       setIsLoading(false);
     }
@@ -219,7 +215,7 @@ function App() {
 
   const clearChat = async () => {
     try {
-      const response = await fetch('https://localhost:3000/api/clear', {
+      const response = await fetch('/api/clear', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -227,10 +223,6 @@ function App() {
         body: JSON.stringify({ user_id: 'web-user' })
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      
       const data = await response.json();
       
       if (data.success) {
@@ -241,13 +233,13 @@ function App() {
       }
     } catch (error) {
       console.error('Error clearing chat:', error);
-      addMessage(`❌ Failed to clear chat history: ${error.message}`, 'system');
+      addMessage('❌ Failed to clear chat history', 'system');
     }
   };
 
   const getHelp = async () => {
     try {
-      const response = await fetch('https://localhost:3000/api/help', {
+      const response = await fetch('/api/help', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -255,10 +247,6 @@ function App() {
         body: JSON.stringify({ user_id: 'web-user' })
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      
       const data = await response.json();
       
       if (data.response) {
@@ -268,13 +256,13 @@ function App() {
       }
     } catch (error) {
       console.error('Error getting help:', error);
-      addMessage(`❌ Failed to get help information: ${error.message}`, 'system');
+      addMessage('❌ Failed to get help information', 'system');
     }
   };
 
   const testTools = async () => {
     try {
-      const response = await fetch('https://localhost:3000/api/test-tools', {
+      const response = await fetch('/api/test-tools', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -282,10 +270,6 @@ function App() {
         body: JSON.stringify({ user_id: 'web-user' })
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      
       const data = await response.json();
       
       if (data.test_results) {
@@ -298,13 +282,13 @@ function App() {
       }
     } catch (error) {
       console.error('Error testing tools:', error);
-      addMessage(`❌ Failed to test tools: ${error.message}`, 'system');
+      addMessage('❌ Failed to test tools', 'system');
     }
   };
 
   const analyzeConversation = async () => {
     try {
-      const response = await fetch('https://localhost:3000/api/analyze-conversation', {
+      const response = await fetch('/api/analyze-conversation', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -312,10 +296,6 @@ function App() {
         body: JSON.stringify({ user_id: 'web-user' })
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      
       const data = await response.json();
       
       if (data.response) {
@@ -325,7 +305,7 @@ function App() {
       }
     } catch (error) {
       console.error('Error analyzing conversation:', error);
-      addMessage(`❌ Failed to analyze conversation: ${error.message}`, 'system');
+      addMessage('❌ Failed to analyze conversation', 'system');
     }
   };
 
